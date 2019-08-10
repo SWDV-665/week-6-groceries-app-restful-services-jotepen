@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- This code will create the list of items in my app. -->
+<ion-content padding>
+
+    
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let item of loadItems(); let i = index">
+      <ion-item>
+        <h2>{{item.name}}</h2>
+        <ion-label text-right>
+          <h1>Qty: {{item.quantity}}</h1>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options>
+        <ion-item-option ion-button color="primary" (click)="editItem(item, i)" icon-start>
+          <ion-icon name="share" size="large"></ion-icon>
+          Edit
+        </ion-item-option>
+
+        
+          <ion-item-option ion-button color="light" (click)="shareItem(item, i)" icon-start>
+            <ion-icon name="create" size="large"></ion-icon>
+            Share
+          </ion-item-option>
+         
+          
+          
+          <ion-item-option ion-button color="secondary" (click)="removeItem(item, i)">
+            <ion-icon name="trash" size="large"></ion-icon>
+            Done
+          </ion-item-option>
+        </ion-item-options>
+
+    </ion-item-sliding>
+    </ion-list>
+
+  <!-- This code adds the floating Add button on the bottom right corner of the screen. -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addItem()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+</ion-content>
+
+
+
+
